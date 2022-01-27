@@ -5,9 +5,11 @@ import math
 class SuikaGame:
 
     def calc_distance(x1, y1, x2, y2):
-        # 2点間の距離を求める
+        """2点間の距離を求める
+        """
         diff_x = x1 - x2
         diff_y = y1 - y2
+        # **2は累乗
         return math.sqrt(diff_x**2 + diff_y**2)
 
     suika_x = random.randrange(0, 5)    # スイカのx座標
