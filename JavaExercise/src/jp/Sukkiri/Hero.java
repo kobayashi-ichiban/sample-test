@@ -1,6 +1,18 @@
 public class Hero {
     String name;
     int hp;
+    Sword sword;
+
+    static int money;
+
+    Hero() {
+        this("dummy");
+    }
+
+    Hero(String name) {
+        this.hp = 100;
+        this.name = name;
+    }
 
     void attack() {
 
@@ -26,5 +38,9 @@ public class Hero {
     void sleep() {
         this.hp = 100;
         System.out.println(this.name + "は眠り、回復した");
+    }
+
+    static void setRandomMoney() {
+        Hero.money = (int) (Math.random() * 1000);
     }
 }
