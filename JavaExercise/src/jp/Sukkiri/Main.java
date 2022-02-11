@@ -1,27 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         Hero h = new Hero("K");
-        // h.name = "K";
-        // h.hp = 100;
-        System.out.println(h.hp);
-        System.out.println(h.name);
-        System.out.println(h.name + "が生まれました。");
+        System.out.println(h.getName() + "が生まれました。");
 
         Hero.money = 100;
         Hero.setRandomMoney();
         System.out.println(Hero.money);
-        System.out.println(h.money);
-
-        Hero h2 = new Hero();
-        // h2 = h;
-        // h2.name = "A";
-        // h2.hp = 200;
-        // System.out.println(h.hp);
-        System.out.println(h2.hp);
-        System.out.println(h2.name);
-
-        h.money = 300;
-        System.out.println(h2.money);
 
         Matango m1 = new Matango();
         m1.hp = 50;
@@ -42,8 +26,6 @@ public class Main {
         w.name = "S";
         w.hp = 50;
         w.heal(h);
-        w.heal(h2);
-        w.heal(h2);
 
         h.sit(5);
         h.slip();
