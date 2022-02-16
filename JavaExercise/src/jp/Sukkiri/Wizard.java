@@ -1,15 +1,19 @@
 public class Wizard {
-    int hp;
-    int mp;
-    String name;
-    Wand wand;
-    
+    private int hp;
+    private int mp;
+    private String name;
+    private Wand wand;
+
     public int getHp() {
         return hp;
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
+        if (hp < 0) {
+            this.hp = 0;
+        } else {
+            this.hp = hp;
+        }
     }
 
     public int getMp() {
@@ -17,6 +21,9 @@ public class Wizard {
     }
 
     public void setMp(int mp) {
+        if (mp < 0) {
+            throw new IllegalArgumentException("この値は設定できません。");
+        }
         this.mp = mp;
     }
 
@@ -25,6 +32,9 @@ public class Wizard {
     }
 
     public void setName(String name) {
+        if (name == null || name.length() < 3) {
+            throw new IllegalArgumentException("この名前は設定できません。");
+        }
         this.name = name;
     }
 
@@ -33,6 +43,9 @@ public class Wizard {
     }
 
     public void setWand(Wand wand) {
+        if (wand == null) {
+            throw new IllegalArgumentException("この値は設定できません。");
+        }
         this.wand = wand;
     }
 

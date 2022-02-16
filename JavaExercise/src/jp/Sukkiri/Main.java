@@ -23,13 +23,18 @@ public class Main {
         System.out.println("現在の武器は" + h.sword.name);
 
         Wizard w = new Wizard();
-        w.name = "S";
-        w.hp = 50;
-        w.heal(h);
+        w.setName("Swiz");
+        w.setHp(50);
+        // w.heal(h);
 
         h.sit(5);
         h.slip();
         h.sit(25);
         h.run();
+
+        SuperHero sh = new SuperHero();
+        sh.fly();
+        sh.run();
+
     }
 }
