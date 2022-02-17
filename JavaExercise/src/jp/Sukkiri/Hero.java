@@ -82,6 +82,16 @@ public class Hero {
         System.out.println(this.name + "は眠り、回復した");
     }
 
+    public void attack(Matango m) {
+        System.out.println(this.name + "の攻撃");
+        m.hp -= 5;
+        System.out.println("マタンゴ" + m.suffix + "の反撃");
+        this.hp -= 2;
+        if (this.hp <= 0) {
+            this.die();
+        }
+    }
+
     public void attack(Matango m, Sword s) {
         System.out.println(this.name + "の攻撃");
         m.hp -= s.damage;
