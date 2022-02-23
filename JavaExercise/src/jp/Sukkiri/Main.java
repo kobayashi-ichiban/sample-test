@@ -7,13 +7,11 @@ public class Main {
         Hero.setRandomMoney();
         System.out.println(Hero.money);
 
-        Matango m1 = new Matango();
+        Matango m1 = new Matango('A');
         m1.hp = 50;
-        m1.suffix = 'A';
 
-        Matango m2 = new Matango();
+        Matango m2 = new Matango('B');
         m2.hp = 48;
-        m2.suffix = 'B';
 
         // 9-4
         Sword s = new Sword();

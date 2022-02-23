@@ -85,7 +85,7 @@ public class Hero {
     public void attack(Matango m) {
         System.out.println(this.name + "の攻撃");
         m.hp -= 5;
-        System.out.println("マタンゴ" + m.suffix + "の反撃");
+        System.out.println("マタンゴ" + m.getSuffix() + "の反撃");
         this.hp -= 2;
         if (this.hp <= 0) {
             this.die();
@@ -95,7 +95,7 @@ public class Hero {
     public void attack(Matango m, Sword s) {
         System.out.println(this.name + "の攻撃");
         m.hp -= s.damage;
-        System.out.println("マタンゴ" + m.suffix + "の反撃");
+        System.out.println("マタンゴ" + m.getSuffix() + "の反撃");
         this.hp -= 2;
         if (this.hp <= 0) {
             this.die();
