@@ -27,4 +27,8 @@ public class Item {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public int getDamage() {
+        return 10;
+    }
 }
