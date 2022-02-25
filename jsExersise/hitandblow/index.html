@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hit And Blow</title>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div id="modal">
+                <h1>HIT & BLOW</h1>
+                <pre>
+                    コンピュータが選んだ数字を当てるゲームです。重複しない数字を予測して入力します。
+                    コンピュータが選んだ数字を予測し10回以内に当てると勝ちです。
+                    ・Hit ：桁の位置と数字が同じ
+                    ・Blow：桁の位置は違うが数字が同じ
+                </pre>
+
+                <div id="levels" class="btn-group-vertical">
+                    <p>挑戦する桁数を選択してください。</p>
+                    <button type="button" id="select" class="btn btn-info rounded-0">2</button>
+                    <button type="button" id="select" class="btn btn-info rounded-0">3</button>
+                    <button type="button" id="select" class="btn btn-info rounded-0">4</button>
+                    <button type="button" id="select" class="btn btn-info rounded-0">5</button>
+                    <button type="button" id="select" class="btn btn-info rounded-0">6</button>
+                </div>
+            </div>
+
+            <div id="end" class="hide">
+                <p></p>
+                <p></p>
+                <p onclick="window.location.reload()"></p>
+            </div>
+
+            <div id="numberDisplay"></div>
+
+            <div class="d-grid gap-2 d-md-block">
+                <button type="button" id="checkAnswer" class="btn btn-primary rounded-pill btn-lg">NUMBER CHECK</button>
+                <button type="button" id="clearAnswer" class="btn btn-secondary rounded-pill btn-lg">CLEAR</button>
+            </div>
+            <br />
+            <div id="choiceNumbers" class="btn-group">
+                <button type="button" id="choiceNumber" class="btn btn-dark">0</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">1</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">2</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">3</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">4</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">5</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">6</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">7</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">8</button>
+                <button type="button" id="choiceNumber" class="btn btn-dark">9</button>
+            </div>
+
+            <table id="history" class="table table-bordered table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th>CHALLENGE</th>
+                        <th scope="col">Your guess</th>
+                        <th scope="col">Hit</th>
+                        <th scope="col">Blow</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <th scope="row">1st</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2nd</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3rd</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4th</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5th</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6th</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7th</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8th</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9th</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Last</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                </thead>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
