@@ -3,8 +3,7 @@ let secretNumber = [];
 let level;
 let count = 0;
 
-const modal = document.getElementById("modal");
-    modal.addEventListener("click", startGame);
+const selectLevels = document.getElementById("select");
 const numberDisplay = document.getElementById("numberDisplay");
 const nums = document.querySelectorAll(".num");
 const choiceNumber = document.querySelectorAll("#choiceNumber");
@@ -19,11 +18,11 @@ const table = document.querySelector("table");
 const end = document.getElementById("end");
 
 /* ゲーム開始処理 */
-function startGame(e) {
-    if (e.target.className === "select") {
-        level = Number(e.target.textContent);
+function startGame(selectLevel) {
+    if (selectLevel > 1) {
+        level = selectLevel;
         secretNumber = makeQuestionNumber(num_array);
-        modal.classList.add("hide");
+        selectLevels.classList.add("hide");
     }
 }
 
@@ -44,7 +43,7 @@ function selectNumber(e) {
     if (numberDisplay.textContent.length === level - 1) {
         choiceNumber.forEach((value) => {
             value.classList.add("disable");
-            btn.style.pointerEvents = "auto";
+            checkAnswer.style.pointerEvents = "auto";
             return;
         });
     }
@@ -67,10 +66,10 @@ function showHistory() {
         });
         checkAnswerBtn.style.pointerEvents = "none";
 
-        table.rows[count].cells[1].textContent = '${numberDisplay.textContent}';
-        table.rows[count].cells[2].textContent = '${result.hit}';
-        table.rows[count].cells[3].textContent = '${result.blow}';
-        numberDisplay.textContent = 'Hit: ${result.hit} Blow: ${result.blow}';
+        table.rows[count].cells[1].textContent = `${numberDisplay.textContent}`;
+        table.rows[count].cells[2].textContent = `${result.hit}`;
+        table.rows[count].cells[3].textContent = `${result.blow}`;
+        numberDisplay.textContent = `Hit: ${result.hit} Blow: ${result.blow}`;
         numberDisplay.textContent = "";
         isGameEnd(result.hit);
     }
@@ -95,7 +94,7 @@ function isAnswer(answer,secretNumber) {
 }
 
 /* ゲーム終了判定処理 */
-function isGameEnd() {
+function isGameEnd(hit) {
     if (hit === level) {
         end.children[0].textContent = "You WIN !";
         showGameEnd();
@@ -109,7 +108,7 @@ function isGameEnd() {
 function showGameEnd() {
     end.classList.remove("hide");
     end.animate({ opacity: [0, 0.7] }, { duration: 1500 });
-    end.children[1].textContent = selectNumber.join("");
+    end.children[1].textContent = secretNumber.join("");
     end.children[2].textContent = "Click Reset";
 }
 
