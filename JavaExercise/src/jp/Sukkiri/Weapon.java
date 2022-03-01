@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class Weapon extends Item {
 
     public Weapon(String name) {

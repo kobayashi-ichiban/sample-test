@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class Hero {
     private String name;
     private int hp;

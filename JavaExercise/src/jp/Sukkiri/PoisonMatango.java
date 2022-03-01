@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class PoisonMatango extends Matango {
     private int poisonCount = 5;
 

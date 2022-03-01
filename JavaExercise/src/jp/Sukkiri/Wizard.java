@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class Wizard {
     private int hp;
     private int mp;

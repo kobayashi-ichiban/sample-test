@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class Item {
     private String name;
     private int price;

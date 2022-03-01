@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class Wand {
     private String name;
     private double power;

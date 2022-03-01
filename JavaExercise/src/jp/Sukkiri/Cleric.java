@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 import java.util.Random;
 
 public class Cleric {

@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class King {
     void talk(Hero h) {
         System.out.println("王様");

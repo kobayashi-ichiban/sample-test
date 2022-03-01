@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class Matango {
     int hp = 50;
     final int level = 10;
