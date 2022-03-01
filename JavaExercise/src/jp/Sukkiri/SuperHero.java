@@ -1,3 +1,5 @@
+package jp.Sukkiri;
+
 public class SuperHero extends Hero {
     private boolean flying;
     
