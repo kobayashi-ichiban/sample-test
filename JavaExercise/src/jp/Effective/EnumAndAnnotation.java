@@ -57,4 +57,26 @@ public class EnumAndAnnotation {
             return mass * surfaceGravity; // F = ma
         }
     }
+
+    // 値によって切り替えるenum型(問題が多い)
+    public enum Operation {
+        PLUS, MUNUS, TIMES, DIVIDE;
+
+        // 定数で表される算術操作を行う
+        public double apply(double x,double y) {
+            switch (this) {
+                case PLUS:
+                    return x + y;
+                case MUNUS:
+                    return x - y;
+                case TIMES:
+                    return x * y;
+                case DIVIDE:
+                    return x / y;
+            }
+            throw new AssertionError("Unknown op:" + this);
+
+        }
+    }
+
 }
