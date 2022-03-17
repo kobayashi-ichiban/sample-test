@@ -1,9 +1,18 @@
 package jp.exercise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnumLesson {
     public static void main(String[] args) {
-        System.out.println(StringValue.STRING_ONE.toString().equals("ONE"));
-        System.out.println(StringValue.STRING_TWO.toString().equals("ONE"));
+        List<String> printList = new ArrayList<>();
+        if (StringValue.STRING_ONE.toString().equals("ONE")) {
+            printList.add("TRUE");
+        }
+        if (StringValue.STRING_TWO.toString().equals("ONE")) {
+            printList.add("FALSE");
+        }
+        System.out.println(printList.size());
     }
 
     public enum StringValue {
