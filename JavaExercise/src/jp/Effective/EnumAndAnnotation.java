@@ -57,4 +57,89 @@ public class EnumAndAnnotation {
             return mass * surfaceGravity; // F = ma
         }
     }
+
+    // 値によって切り替えるenum型(問題が多い)
+    public enum OperationBad {
+        PLUS, MINUS, TIMES, DIVIDE;
+
+        // 定数で表される算術操作を行う
+        public double apply(double x,double y) {
+            switch (this) {
+                case PLUS:
+                    return x + y;
+                case MINUS:
+                    return x - y;
+                case TIMES:
+                    return x * y;
+                case DIVIDE:
+                    return x / y;
+            }
+            throw new AssertionError("Unknown op:" + this);
+        }
+    }
+
+    // 定数固有メソッド実装を持つenum型
+    public enum Operation1 {
+        PLUS {
+            public double apply(double x, double y) {
+                return x + y;
+            }
+        },
+        MINUS {
+            public double apply(double x, double y) {
+                return x - y;
+            }
+        },
+        TIMES {
+            public double apply(double x, double y) {
+                return x * y;
+            }
+        },
+        DIVIDE {
+            public double apply(double x, double y) {
+                return x / y;
+            }
+        };
+        public abstract double apply(double x, double y);
+    }
+
+    // 定数固有クラス本体と定数固有データを持つenum型
+    public enum Operation2 {
+        PLUS("+") {
+            public double apply(double x, double y) {
+                return x + y;
+            }
+        },
+        MINUS("-") {
+            public double apply(double x, double y) {
+                return x - y;
+            }
+        },
+        TIMES("*") {
+            public double apply(double x, double y) {
+                return x * y;
+            }
+        },
+        DIVIDE("/") {
+            public double apply(double x, double y) {
+                return x / y;
+            }
+        };
+
+        private final String symbol;
+
+        Operation2(String symbol) {
+            this.symbol = symbol;
+        }
+
+        @Override
+        public String toString() {
+            return symbol;
+        }
+
+        public abstract double apply(double x, double y);
+    }
+
+
+
 }
