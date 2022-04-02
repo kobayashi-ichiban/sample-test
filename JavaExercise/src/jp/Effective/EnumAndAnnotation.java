@@ -139,7 +139,4 @@ public class EnumAndAnnotation {
 
         public abstract double apply(double x, double y);
     }
-
-
-
 }
