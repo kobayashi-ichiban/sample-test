@@ -1,9 +1,6 @@
 package jp.Effective;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.DoubleBinaryOperator;
 
 public class LambdaAndStream {
@@ -32,6 +29,9 @@ public class LambdaAndStream {
 
         words.add("SUN");
         words.sort(Comparator.comparingInt(String::length));
+
+        // Map map = new HashMap();
+        // map.merge(key, 1, (count, incr) -> count + incr);
     }
     // 定数固有クラス本体とデータを持つ
     public enum Operation {
