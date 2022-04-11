@@ -11,7 +11,7 @@ public class Section4 {
     class StatsKeeper {
         public void add(double d) {
             d = d + 1.0;
-        };
+        }
         double Average() {
             return 4.0 / 1.5;
         }
