@@ -1,9 +1,10 @@
-import java.security.KeyStore.Entry;
+package jp.exercise;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BlockAccessor {
-    private finel Cache chace;
+    private final Cache cache;
     private final BlockDevice device;
 
     public BlockAccessor(Cache.Policy policy) {
@@ -25,7 +26,7 @@ public class BlockAccessor {
 class BlockDevice {
     private final byte[][] blocks = new byte[100][512];
 
-    static BlockDeviceopen() {
+    static BlockDevice open() {
         return new BlockDevice();
     }
 
@@ -39,25 +40,6 @@ class BlockDevice {
     }
 }
 
-public abstract class Cache {
-    public enum Policy {
-        FIFO, LRU;
-    }
-
-    static Cache createCache(Policy policy) {
-        switch (policy) {
-            case FIFO:
-                return new ListBasedCache.Fifo();
-            case LRU:
-                return new ListBasedCache.Lru();
-        }
-        throw new UnsupportedOperationException();
-    }
-
-    abstract byte[] getCachedBlockData(int index);
-    abstract void cacheBlockData(int index, byte[] blockData);
-}
-
 abstract class ListBasedCache extends Cache {
     final List<Entry> entries = new ArrayList<Entry>();
     private static final int CACHE_SIZE = 20;
@@ -68,7 +50,8 @@ abstract class ListBasedCache extends Cache {
                 hit(entry);
                 return entry.getBlockData();
             }
-        }[return null;]
+        }
+        return null;
     }
 
     void cacheBlockData(int index, byte[] blockData) {
@@ -94,13 +77,13 @@ abstract class ListBasedCache extends Cache {
     }
 
     static class Fifo extends ListBasedCache {
-        void hit(Entry entry) { }
+        void hit(ListBasedCache.Entry entry) { }
     }
 
     static class Lru extends ListBasedCache {
-        void hit(Entry entry) {
+        void hit(ListBasedCache.Entry entry) {
             entries.remove(entry);
-            entries.add(0, entry)
+            entries.add(0, entry);
         }
     }
 }
