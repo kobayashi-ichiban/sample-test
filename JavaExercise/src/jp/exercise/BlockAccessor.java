@@ -46,9 +46,9 @@ abstract class ListBasedCache extends Cache {
 
     byte[] getCachedBlockData(int index) {
         for (Entry entry : entries) {
-            if (entry.getIndex() == index) {
+            if (entry.index() == index) {
                 hit(entry);
-                return entry.getBlockData();
+                return entry.blockData();
             }
         }
         return null;
@@ -63,17 +63,7 @@ abstract class ListBasedCache extends Cache {
 
     abstract void hit(Entry entry);
 
-    private static class Entry {
-        private final int index;
-        private final byte[] blockData;
-
-        private Entry(int index, byte[] blockData) {
-            this.index = index;
-            this.blockData = blockData;
-        }
-
-        int getIndex() { return index; }
-        byte[] getBlockData() { return blockData; }
+    private record Entry(int index, byte[] blockData) {
     }
 
     static class Fifo extends ListBasedCache {
