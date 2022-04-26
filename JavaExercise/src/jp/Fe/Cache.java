@@ -1,4 +1,7 @@
-package jp.exercise;
+/*
+ * H27年秋
+ */
+package jp.Fe;
 
 public abstract class Cache {
     public enum Policy {
