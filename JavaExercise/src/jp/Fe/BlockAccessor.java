@@ -1,9 +1,13 @@
-import java.security.KeyStore.Entry;
+/*
+ * H27年秋
+ */
+package jp.Fe;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BlockAccessor {
-    private finel Cache chace;
+    private final Cache cache;
     private final BlockDevice device;
 
     public BlockAccessor(Cache.Policy policy) {
@@ -25,7 +29,7 @@ public class BlockAccessor {
 class BlockDevice {
     private final byte[][] blocks = new byte[100][512];
 
-    static BlockDeviceopen() {
+    static BlockDevice open() {
         return new BlockDevice();
     }
 
@@ -39,36 +43,18 @@ class BlockDevice {
     }
 }
 
-public abstract class Cache {
-    public enum Policy {
-        FIFO, LRU;
-    }
-
-    static Cache createCache(Policy policy) {
-        switch (policy) {
-            case FIFO:
-                return new ListBasedCache.Fifo();
-            case LRU:
-                return new ListBasedCache.Lru();
-        }
-        throw new UnsupportedOperationException();
-    }
-
-    abstract byte[] getCachedBlockData(int index);
-    abstract void cacheBlockData(int index, byte[] blockData);
-}
-
 abstract class ListBasedCache extends Cache {
     final List<Entry> entries = new ArrayList<Entry>();
     private static final int CACHE_SIZE = 20;
 
     byte[] getCachedBlockData(int index) {
         for (Entry entry : entries) {
-            if (entry.getIndex() == index) {
+            if (entry.index() == index) {
                 hit(entry);
-                return entry.getBlockData();
+                return entry.blockData();
             }
-        }[return null;]
+        }
+        return null;
     }
 
     void cacheBlockData(int index, byte[] blockData) {
@@ -80,27 +66,17 @@ abstract class ListBasedCache extends Cache {
 
     abstract void hit(Entry entry);
 
-    private static class Entry {
-        private final int index;
-        private final byte[] blockData;
-
-        private Entry(int index, byte[] blockData) {
-            this.index = index;
-            this.blockData = blockData;
-        }
-
-        int getIndex() { return index; }
-        byte[] getBlockData() { return blockData; }
+    private record Entry(int index, byte[] blockData) {
     }
 
     static class Fifo extends ListBasedCache {
-        void hit(Entry entry) { }
+        void hit(ListBasedCache.Entry entry) { }
     }
 
     static class Lru extends ListBasedCache {
-        void hit(Entry entry) {
+        void hit(ListBasedCache.Entry entry) {
             entries.remove(entry);
-            entries.add(0, entry)
+            entries.add(0, entry);
         }
     }
 }
