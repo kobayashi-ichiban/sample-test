@@ -1,6 +1,7 @@
 package jp.Effective;
 
 import java.util.*;
+import java.util.function.DoubleBinaryOperator;
 
 public class LambdaAndStream {
     public static void main(String[] args) {
