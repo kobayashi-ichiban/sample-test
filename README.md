@@ -8,5 +8,3 @@
    Sukkiri: スッキリわかる
  - jsExersise  
    お試しサイトのコード動作確認
- - puyo  
-   JavaScriptぷよぷよです
